@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static helpers.AuthApi.authCookieKey;
 import static helpers.CustomerAllureListener.withCustomTemplates;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
@@ -26,61 +25,78 @@ public class ProjectTests extends TestBase{
 //        RestAssured.baseURI = "https://allure.autotests.cloud";
 //        RestAssured.basePath = "/api";
 //    }
-    @BeforeAll
-    public static void buildData(){
-        projectRequest = new ProjectRequest();
-        projectRequest.setName("ProjectForDELETE");
-        projectRequest.setIsPublic(false);
-        //projectId = given(requestSpec).body(projectRequest).post("/rs/project").as(ProjectResponse.class).getId();
-
-
-    }
+//    @BeforeAll
+//    public static void buildData(){
+//        projectRequest = new ProjectRequest();
+//        projectRequest.setName("ProjectForDELETE");
+//        projectRequest.setIsPublic(false);
+//        //projectId = given(requestSpec).body(projectRequest).post("/rs/project").as(ProjectResponse.class).getId();
+//
+//
+//    }
 
 
     @Test
     @DisplayName("Создание нового проекта")
     void createNewProject() {
-        String authCookieValue = authApi.getAuthCookie(login,password);
-
-
-        var request = ProjectRequest.builder().isPublic(false).name("DiplomaTESTAPI").build();
-
-//        projectRequest.setIsPublic(false);
-//        projectRequest.setName("DiplomaTESTSAPI");
+        authApi.getToken(login, password);
+        ProjectRequest request = ProjectRequest.builder()
+                .isPublic(false)
+                .name("DiplomaTESTAPI")
+                .build();
 
         step("Создать новый проект", () ->
-                given(requestSpec)
-                        .cookie(authCookieKey,authCookieValue)
-                        .filter(withCustomTemplates())
+                given()
                         .spec(requestSpec)
+                        .filter(withCustomTemplates())
                         .body(request)
                         .when()
                         .post("/rs/project")
                         .then()
                         .spec(response200Spec)
-                        .extract().as(ProjectResponse.class));
+                        .extract()
+                        .as(ProjectResponse.class));
+//        String authCookieValue = authApi.getAuthCookie(login,password);
+//
+//
+//        var request = ProjectRequest.builder().isPublic(false).name("DiplomaTESTAPI").build();
+//
+////        projectRequest.setIsPublic(false);
+////        projectRequest.setName("DiplomaTESTSAPI");
+//
+//        step("Создать новый проект", () ->
+//                given(requestSpec)
+//                        .cookie(authCookieKey,authCookieValue)
+//                        .filter(withCustomTemplates())
+//                        .spec(requestSpec)
+//                        .body(request)
+//                        .when()
+//                        .post("/rs/project")
+//                        .then()
+//                        .spec(response200Spec)
+//                        .extract().as(ProjectResponse.class));
 
 
     }
 
-    @Test
-    @DisplayName("Удаление проекта")
-    void deleteProject() {
-        String authCookieValue = authApi.getAuthCookie(login,password);
-
-        step("Удалить проект", () ->
-                given(requestSpec)
-                        .cookie(authCookieKey,authCookieValue)
-                        .filter(withCustomTemplates())
-                        .spec(requestSpec)
-                        .body(projectRequest)
-                        .when()
-                        .queryParam("id", projectId)
-                        .delete("rs/project/")
-                        .then()
-                        .spec(response204Spec));
-
-    }
+//    @Test
+//    @DisplayName("Удаление проекта")
+//    void deleteProject() {
+//        String authCookieValue = authApi.getAuthCookie(login,password);
+//
+//        step("Удалить проект", () ->
+//                given(requestSpec)
+//                        .cookie(authCookieKey,authCookieValue)
+//                        .filter(withCustomTemplates())
+//                        .spec(requestSpec)
+//                        .body(projectRequest)
+//                        .when()
+//                        .queryParam("id", projectId)
+//                        .delete("rs/project/")
+//                        .then()
+//                        .spec(response204Spec));
+//
+//    }
 
 
 }

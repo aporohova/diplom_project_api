@@ -8,8 +8,8 @@ import org.aeonbits.owner.Config;
 
     public interface TestConfig extends Config {
 
-        @Key("login")
-        String getLogin();
+        @Key("username")
+        String getUsername();
 
         @Key("password")
         String getPassword();
