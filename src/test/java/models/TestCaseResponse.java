@@ -3,9 +3,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProjectResponse {
-    String name, createdBy, lastModifiedBy;
-    int id;
-    boolean isPublic;
-    Long createdDate,lastModifiedDate;
+
+public class TestCaseResponse {
+    String id, name, statusName;
+    boolean automated, external;
+    long createdDate;
 }
