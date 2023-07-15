@@ -1,13 +1,18 @@
 package tests;
+import io.qameta.allure.Owner;
 import models.ProjectRequest;
 import models.ProjectResponse;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static helpers.CustomerAllureListener.withCustomTemplates;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static specs.Specs.*;
 import static org.assertj.core.api.Assertions.assertThat;
+
+@Owner("Алена Порохова")
+@Tag("api")
 public class ProjectTests extends TestBase {
     String name = "TestForApiDiploma";
     @Test
