@@ -5,6 +5,8 @@ import models.DashboardResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import utils.TestData;
+import static helpers.CustomerAllureListener.withCustomTemplates;
 import static io.qameta.allure.Allure.step;
 import static specs.Specs.requestSpec;
 import static io.restassured.RestAssured.given;
@@ -24,6 +26,7 @@ public class DashboardTest extends TestBase {
 
         DashboardResponse dashboardResponse = step("Создать dashboard", () ->
                 given(requestSpec)
+                        .filter(withCustomTemplates())
                         .body(dashboardRequest)
                         .when()
                         .post("rs/dashboard")

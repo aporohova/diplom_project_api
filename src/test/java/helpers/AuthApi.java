@@ -1,9 +1,7 @@
 package helpers;
 
-import tests.TestBase;
-
 import static io.restassured.RestAssured.given;
-import static tests.TestData.*;
+import static utils.TestData.*;
 
 public class AuthApi{
     //public static String authCookieKey = "ALLURE_TESTOPS_SESSION";

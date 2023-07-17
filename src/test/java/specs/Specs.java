@@ -7,7 +7,7 @@ import static io.restassured.RestAssured.with;
 import static io.restassured.filter.log.LogDetail.BODY;
 import static io.restassured.filter.log.LogDetail.STATUS;
 import static io.restassured.http.ContentType.JSON;
-import static tests.TestData.*;
+import static utils.TestData.*;
 
 public class Specs {
     public static RequestSpecification requestSpec = with()

@@ -4,6 +4,9 @@ import models.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import utils.TestData;
+
+import static helpers.CustomerAllureListener.withCustomTemplates;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static specs.Specs.requestSpec;
@@ -22,6 +25,7 @@ public class TestCaseTest extends TestBase {
 
         TestCaseResponse testCaseResponse = step("Создать тест кейс", () ->
                 given(requestSpec)
+                        .filter(withCustomTemplates())
                         .body(testCaseRequest)
                         .queryParam("projectId", TestData.projectID)
                         .when()
@@ -41,6 +45,7 @@ public class TestCaseTest extends TestBase {
         authApi.getToken(login, password);
         CommentResponse commentResponse = step("Добавить комментарий к тест кейсу", () ->
                 given(requestSpec)
+                        .filter(withCustomTemplates())
                         .body(commentRequest)
                         .when()
                         .post("/rs/comment")
@@ -53,6 +58,7 @@ public class TestCaseTest extends TestBase {
         int commentId = commentResponse.getId();
         step("Удалить созданный комментарий", () ->
                 given(requestSpec)
+                        .filter(withCustomTemplates())
                         .when()
                         .delete("rs/comment/" + commentId)
                         .then()
