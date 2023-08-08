@@ -25,9 +25,10 @@ dependencies {
             'org.assertj:assertj-core:3.24.2',
             'com.github.javafaker:javafaker:1.0.2'
     )
-
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+
 }
+
 allure {
     report {
         version.set("2.21.0")
@@ -41,11 +42,20 @@ allure {
         }
     }
 }
-test {
-    useJUnitPlatform()
-}
+
 tasks.withType(Test) {
     systemProperties(System.getProperties())
+    useJUnitPlatform()
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
 }
 
 task api_tests(type: Test) {
@@ -53,24 +63,5 @@ task api_tests(type: Test) {
         includeTags("api")
     }
 }
-//test {
-//    useJUnitPlatform()
-//}
 
-//tasks.withType(Test) {
-//    useJUnitPlatform()
-//    systemProperties(System.getProperties())
-//
-//    task api_tests(type: Test) {
-//        useJUnitPlatform {
-//            includeTags("api")
-//        }
-//
-//        testLogging {
-//            lifecycle {
-//                events "started", "skipped", "failed", "standard_error", "standard_out"
-//                exceptionFormat "short"
-//            }
-//        }
-//    }
-//}
+
