@@ -15,9 +15,9 @@ public class TestBase {
     String password = config.getPassword();
     AuthApi authApi = new AuthApi();
 
-    static AllureConfig configAllure = ConfigFactory.create(AllureConfig.class, System.getProperties());
-    static public String token = configAllure.getToken();
-    public String xsrfToken = configAllure.getXsrfToken();
+//    static AllureConfig configAllure = ConfigFactory.create(AllureConfig.class, System.getProperties());
+//    static public String token = configAllure.getToken();
+//    public String xsrfToken = configAllure.getXsrfToken();
 
     @BeforeAll
     public static void setUp() {
