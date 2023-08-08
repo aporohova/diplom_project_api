@@ -4,3 +4,4 @@
 /build/classes/java/test/
 /src/test/resources/config/app.properties
 /src/test/resources/config/allure.properties
+/notification/config.json
