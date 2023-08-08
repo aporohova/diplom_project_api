@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProjectComment {
-    String createdBy, description, lastModifiedBy, name;
-    long createdDate, lastModifiedDate;
-    int id;
-    boolean isPublic;
+    private String createdBy, description, lastModifiedBy, name;
+    private long createdDate, lastModifiedDate;
+    private int id;
+    private boolean isPublic;
 }
 

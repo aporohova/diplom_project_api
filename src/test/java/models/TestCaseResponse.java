@@ -1,11 +1,9 @@
 package models;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-@Data
-@JsonIgnoreProperties(ignoreUnknown = true)
 
+@Data
 public class TestCaseResponse {
-    String id, name, statusName;
-    boolean automated, external;
-    long createdDate;
+    private String id, name, statusName;
+    private boolean automated, external;
+    private long createdDate;
 }

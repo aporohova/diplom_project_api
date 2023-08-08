@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import utils.TestData;
-
 import static helpers.CustomerAllureListener.withCustomTemplates;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
@@ -16,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Owner("Алена Порохова")
 @Tag("api")
 public class TestCaseTest extends TestBase {
+
     @Test
     @DisplayName("Создание тест кейса")
     void createTestCase() {
@@ -36,9 +36,11 @@ public class TestCaseTest extends TestBase {
         step("Проверить имя созданного тест кейса", () ->
                 assertThat(testCaseResponse.getName()).isEqualTo(TestData.testCaseName));
     }
+
     @Test
     @DisplayName("Добавление комментария к тесту и его удаление")
     void addDeleteComment() {
+
         CommentRequest commentRequest = new CommentRequest();
         commentRequest.setBody(TestData.testCaseComment);
         commentRequest.setTestCaseId(24126);

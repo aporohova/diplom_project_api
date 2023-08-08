@@ -46,6 +46,19 @@ ___
 <p align="center">
 <a href="https://jenkins.autotests.cloud/job/diploma_project_web/"><img src="images/screenshots/dashboard_jenkins.png" alt="Jenkins" width="950"/></a>
 
+***Для локального запуска:***
+```bash  
+✓  Создать файл app.properties и разместить по адресу src/test/resources/config/app.properties
+✓  Файл должен содержать следующие данные: 
+-username=username для allure.autotests.cloud
+-password=пароль юзера
+-baseUrl=https://allure.autotests.cloud
+✓  Создать файл allure.properties и разместить по адресу src/test/resources/config/allure.properties
+✓  Файл должен содержать следующие данные: 
+-token
+-xsrfToken
+```
+___
 __
 ## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.autotests.cloud/job/diploma_project_api/7/allure/)</a>
 

@@ -16,6 +16,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Owner("Алена Порохова")
 @Tag("api")
 public class DashboardTest extends TestBase {
+
     @Test
     @DisplayName("Создание и удаление dashboard в проекте")
     void createDashboard() {
