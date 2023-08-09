@@ -10,9 +10,9 @@ import org.junit.jupiter.api.BeforeAll;
 public class TestBase {
 
     static TestConfig config = ConfigFactory.create(TestConfig.class, System.getProperties());
-    String login = config.getUsername();
-    String password = config.getPassword();
-    AuthApi authApi = new AuthApi();
+    protected final AuthApi authApi = new AuthApi();
+    protected final String login = config.getUsername();
+    protected final String password = config.getPassword();
 
     @BeforeAll
     public static void setUp() {

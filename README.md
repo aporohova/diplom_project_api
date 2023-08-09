@@ -53,6 +53,8 @@ ___
 -username=username для allure.autotests.cloud
 -password=пароль юзера
 -baseUrl=https://allure.autotests.cloud
+-token=полученный из личного кабинета юзера
+-xsrfToken=полученный из личного кабинета юзера
 ```
 ___
 __
