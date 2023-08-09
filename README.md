@@ -53,10 +53,6 @@ ___
 -username=username для allure.autotests.cloud
 -password=пароль юзера
 -baseUrl=https://allure.autotests.cloud
-✓  Создать файл allure.properties и разместить по адресу src/test/resources/config/allure.properties
-✓  Файл должен содержать следующие данные: 
--token
--xsrfToken
 ```
 ___
 __

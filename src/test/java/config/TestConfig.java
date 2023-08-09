@@ -15,6 +15,5 @@ import org.aeonbits.owner.Config;
 
         @Key("baseUrl")
         String getBaseUrl();
-
     }
 
